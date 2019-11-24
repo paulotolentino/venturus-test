@@ -1,0 +1,219 @@
+body{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.navbar{
+    height: 5rem;
+    padding: 0 60px;
+}
+
+.logo{
+    font-weight: bold;
+    background-image: url('./img/img1.png');
+    background-repeat: no-repeat;
+    padding-left: 50px;
+}
+
+.navlink{
+    background-color: rgb(245, 245, 245);
+    padding: 0 50px;
+}
+
+.arrow{
+    display: flex;
+    align-items: center;
+    cursor: auto;
+}
+
+.nav-link{
+    color: #4dbda7;
+}
+
+.nav-link:hover{
+    color: #39cdd5;
+    text-decoration-line: underline;
+}
+
+.current{
+    color: #555;
+    cursor: auto;
+}
+
+.current:hover{
+    color: #555;
+    text-decoration-line: none;
+}
+
+.three-icons{
+    height: 9rem;
+    background-color: rgb(191, 232, 224);
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.icon-box{
+    display:flex;
+    margin-left: 5rem;
+}
+
+.icon{
+    font-size: 2.4rem;
+    color: #4dbda7;
+    
+}
+
+.iconBigger{
+    font-size: 3.5rem;
+    color: #4dbda7;
+}
+
+.text-icon-box{
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    padding-left: 1.2rem;
+}
+
+.small-text{
+    font-size: 0.8rem;
+    margin: 0;
+    color: #555;
+}
+
+.medium-text{
+    font-size: 1.1rem;
+    margin: 0;
+    font-weight: bold;
+}
+
+.conteudo{
+    margin: 3rem 5rem 0 5rem;
+}
+
+.topo{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.line{
+    height:2px;
+    border:none;
+    color:#000;
+    background-color:#000;
+}
+
+.filter{
+    height: 1.8rem;
+    border-radius: 0.4rem;
+    padding-left: 20px;
+    font-size: 0.9rem;
+    justify-content: flex-end;
+    width: 18em;
+    background-image: url('./img/lupa.png');
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+}
+
+.table-section{
+    font-size: 0.8rem;
+    margin-bottom: 3rem;
+}
+
+.registration-options{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.registration-column{
+    display: flex;
+    flex-direction: column;
+    padding-right: 2rem;
+}
+
+.registration-row{
+    display: flex;
+}
+
+.reg-title{
+    color: #4dbda7;
+    font-size: 1.6rem;
+}
+
+.reg-text{
+    font-size: 0.8rem;
+    margin-left: 1rem;
+}
+
+.form-section{
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.group{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    font-size: 0.8rem;
+}
+
+.save-button{
+    background-color: #4dbda7;
+    border: none;
+    margin: 1rem 1rem 10rem 0 ;
+}
+
+.save-button:hover{
+    background-color: rgb(0, 206, 144);
+}
+
+.discart-button{
+    background-color: rgb(209, 208, 208);
+    border: none;
+    margin: 1rem 1rem 10rem 0 ;
+    color: black;
+}
+
+.discart-button:hover{
+    background-color: rgb(238, 236, 236);
+    color: black;
+}
+
+.city-input{
+    display: flex;
+    justify-content: space-between;
+}
+
+.optional-text{
+    font-size: 0.7rem;
+}
+.label-ride{
+    margin-top: 1rem;
+}
+
+.group-radio{
+    display: flex;
+    justify-content: space-between;
+    padding-right: 5rem;
+}
+
+.custom-control-label::after, .custom-control-label{
+    cursor: pointer;
+}
+
+.green-text{
+    color: #4dbda7;
+}
+
+.table tr>th{
+    background-color: #fff;
+    position: sticky;
+    top: 0;
+}
