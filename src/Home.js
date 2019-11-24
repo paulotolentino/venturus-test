@@ -99,22 +99,47 @@ export default class Home extends React.Component {
 
   }
 
+  validation = (newUser) => {
+    if(newUser.username === ''){
+      alert("Por favor, preencha o campo Username.");
+      document.getElementById('formUsername').focus();
+      return false;
+    }else if(newUser.name === ''){
+      alert("Por favor, preencha o campo Name.");
+      document.getElementById('formName').focus();
+      return false;
+    }else if(newUser.email === ''){
+      alert("Por favor, preencha o campo E-mail.");
+      document.getElementById('formEmail').focus();
+      return false;
+    }else if(newUser.ride === ''){
+      alert("Por favor, selecione uma opção para Ride in group.");
+      return false;
+    }else if(newUser.days.length === 0){
+      alert("Por favor, selecione ao menos 1 dia da semana.");
+      return false;
+    }
+    return true;
+  }
+
   submitUser = () => {
     const arrUsers =  this.state.users;
     const newUser = this.state.newUser;
-    const newId = arrUsers[arrUsers.length-1].id+1;
-    arrUsers.push({
-      address:{ city: newUser.city},
-      email: newUser.email,
-      name: newUser.name,
-      username: newUser.username,
-      id: newId,
-      days: newUser.days,
-      ride: newUser.ride
-    })
-    this.setState({
-      users: arrUsers
-    }, this.clearForm())
+    if(this.validation(newUser)){
+      const newId = arrUsers[arrUsers.length-1].id+1;
+      arrUsers.push({
+        address:{ city: newUser.city ? newUser.city : 'Não informada'},
+        email: newUser.email,
+        name: newUser.name,
+        username: newUser.username,
+        id: newId,
+        days: newUser.days,
+        ride: newUser.ride
+      })
+      this.setState({
+        users: arrUsers
+      }, this.clearForm())
+    }
   }
 
   clearForm = () => {
@@ -214,6 +239,7 @@ export default class Home extends React.Component {
                 <Form.Group controlId="formUsername">
                   <Form.Label>Username</Form.Label>
                   <Form.Control
+                    tabIndex="1"
                     value={this.state.newUser.username}
                     onChange={(e) => this.changeInput(e, 1)}
                     type="text"
@@ -226,6 +252,7 @@ export default class Home extends React.Component {
                 <Form.Group controlId="formName">
                   <Form.Label>Name</Form.Label>
                   <Form.Control
+                    tabIndex="2"
                     value={this.state.newUser.name}
                     onChange={(e) => this.changeInput(e, 2)}
                     type="text"
@@ -235,17 +262,28 @@ export default class Home extends React.Component {
                 <Form.Group controlId="formEmail">
                   <Form.Label>E-mail</Form.Label>
                   <Form.Control
+                    tabIndex="3"
                     value={this.state.newUser.email}
                     onChange={(e) => this.changeInput(e, 3)}
                     type="email"
                   />
                 </Form.Group>
 
-                <Button className="save-button" onClick={()=>this.submitUser()} type="button">
+                <Button 
+                  tabIndex="15"
+                  className="save-button"
+                  onClick={()=>this.submitUser()}
+                  type="button"
+                >
                   Save
                 </Button>
 
-                <Button className="discart-button" onClick={() => this.clearForm()} type="button">
+                <Button 
+                  tabIndex="16"
+                  className="discart-button"
+                  onClick={() => this.clearForm()}
+                  type="button"
+                >
                   Discart
                 </Button>
               </Form>
@@ -261,6 +299,7 @@ export default class Home extends React.Component {
                     </Form.Text>
                   </section>
                   <Form.Control
+                    tabIndex="4"
                     value={this.state.newUser.city}
                     onChange={(e) => this.changeInput(e, 4)}
                     type="text"
@@ -272,6 +311,7 @@ export default class Home extends React.Component {
                   <section className="group-radio" >
                     <Form.Group controlId="forAways">
                       <Form.Check
+                        tabIndex="5"
                         custom
                         checked={this.state.newUser.ride === "Always"}
                         onChange={()=> this.changeRide('Always')}
@@ -284,6 +324,7 @@ export default class Home extends React.Component {
 
                     <Form.Group controlId="forSometimes">
                       <Form.Check
+                        tabIndex="6"
                         custom
                         checked={this.state.newUser.ride === "Sometimes"}
                         onChange={()=> this.changeRide('Sometimes')}
@@ -296,6 +337,7 @@ export default class Home extends React.Component {
 
                     <Form.Group controlId="forNever">
                       <Form.Check
+                        tabIndex="7"
                         custom
                         checked={this.state.newUser.ride === "Never"}
                         onChange={()=> this.changeRide('Never')}
@@ -313,6 +355,7 @@ export default class Home extends React.Component {
                   <section className="group-radio" >
                     <Form.Group controlId="forSun">
                       <Form.Check
+                        tabIndex="8"
                         custom
                         checked={days.includes(1)}
                         onChange={()=>this.changeDays(1)}
@@ -324,6 +367,7 @@ export default class Home extends React.Component {
 
                     <Form.Group controlId="forMon">
                       <Form.Check
+                        tabIndex="9"
                         custom
                         checked={days.includes(2)}
                         onChange={()=>this.changeDays(2)}
@@ -335,6 +379,7 @@ export default class Home extends React.Component {
                     
                     <Form.Group controlId="forTue">
                       <Form.Check
+                        tabIndex="10"
                         custom
                         checked={days.includes(3)}
                         onChange={()=>this.changeDays(3)}
@@ -346,6 +391,7 @@ export default class Home extends React.Component {
                     
                     <Form.Group controlId="forWed">
                       <Form.Check
+                        tabIndex="11"
                         custom
                         checked={days.includes(4)}
                         onChange={()=>this.changeDays(4)}
@@ -357,6 +403,7 @@ export default class Home extends React.Component {
                     
                     <Form.Group controlId="forThu">
                       <Form.Check
+                        tabIndex="12"
                         custom
                         checked={days.includes(5)}
                         onChange={()=>this.changeDays(5)}
@@ -368,6 +415,7 @@ export default class Home extends React.Component {
                     
                     <Form.Group controlId="forFri">
                       <Form.Check
+                        tabIndex="13"
                         custom
                         checked={days.includes(6)}
                         onChange={()=>this.changeDays(6)}
@@ -379,6 +427,7 @@ export default class Home extends React.Component {
                     
                     <Form.Group controlId="forSat">
                       <Form.Check
+                        tabIndex="14"
                         custom
                         checked={days.includes(7)}
                         onChange={()=>this.changeDays(7)}
